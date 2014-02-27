@@ -21,4 +21,6 @@ meetup_time = soup.find_all('span', {'class': 'time'})
 upcoming_meetups = dict(zip(meetup_title, dict(zip(meetup_date, meetup_time))))
 print upcoming_meetups
 
+print [x.get_text() for x in meetup_title]
+
 
