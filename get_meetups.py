@@ -18,9 +18,11 @@ meetup_title = soup.find_all('span', {'itemprop': 'summary'})
 meetup_date = soup.find_all('span', {'class': 'date'})
 meetup_time = soup.find_all('span', {'class': 'time'})
 
+# Zip it all up in to a nice workable dicitonary.
 upcoming_meetups = dict(zip(meetup_title, dict(zip(meetup_date, meetup_time))))
 print upcoming_meetups
 
-print [x.get_text() for x in meetup_title]
+#Extract the text between the tags
+print [str(x.get_text()) for x in meetup_title]
 
 
