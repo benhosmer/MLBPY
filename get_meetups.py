@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import urllib
+import urllib2
 from bs4 import BeautifulSoup
+
 
 url = "http://www.meetup.com/Melbourne-Makerspace-Florida-USA"
 
-data = urllib.urlopen(url).read()
+request = urllib2.Request(url, headers={ 'User-Agent': 'Mozilla/5.0' })
+data = urllib2.urlopen(request).read()
 
 assert isinstance(data, object)
 soup = BeautifulSoup(data)
